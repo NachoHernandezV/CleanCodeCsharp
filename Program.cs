@@ -103,10 +103,15 @@ namespace ToDo
          public static void ShowTasks() 
             {
                  Console.WriteLine("----------------------------------------");
-                for (int i = 0; i < ListaDeTareas.Count; i++)
+                 int indextask = 0;
+                 foreach(string element in ListaDeTareas)
                 {
-                    Console.WriteLine((i + 1) + ". " + ListaDeTareas[i]);
+                    Console.WriteLine($"{++indextask}. {element} ");
                 }
+               // for (int i = 0; i < ListaDeTareas.Count; i++)
+               // {
+                 //   Console.WriteLine((i + 1) + ". " + ListaDeTareas[i]);
+               // }
                 Console.WriteLine("----------------------------------------");
             }
     }
