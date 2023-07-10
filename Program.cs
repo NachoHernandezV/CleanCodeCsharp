@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//using System;
+//using System.Collections.Generic;
 
 namespace ToDo
 {
@@ -72,6 +72,7 @@ namespace ToDo
             }
             catch (Exception)
             {
+                Console.WriteLine("Error al eliminar tareas");
             }
         }
 
@@ -86,12 +87,14 @@ namespace ToDo
             }
             catch (Exception)
             {
+                 Console.WriteLine("Error al agregar Tareas");
             }
         }
 
         public static void ShowMenuPending()
         {
-            if (ListaDeTareas == null || ListaDeTareas.Count == 0)
+           // if (ListaDeTareas == null || ListaDeTareas.Count == 0)
+           if (!(ListaDeTareas?.Count > 0))
             {
                 Console.WriteLine("No hay tareas por realizar");
             } 
