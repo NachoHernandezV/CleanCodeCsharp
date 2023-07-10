@@ -6,6 +6,9 @@ namespace ToDo
     internal class Program
     {
         public static List<string> ListaDeTareas { get; set; }
+        const int add=1;
+        const int delete=2;
+        const int pending=3;
 
         static void Main(string[] args)
         {
@@ -14,15 +17,15 @@ namespace ToDo
             do
             {
                 OpcionSeleccionada = ShowMainMenu();
-                if (OpcionSeleccionada == 1)
+                if (OpcionSeleccionada == add)
                 {
                     ShowMenuAdd();
                 }
-                else if (OpcionSeleccionada == 2)
+                else if (OpcionSeleccionada == delete)
                 {
                     ShowMenuDelete();
                 }
-                else if (OpcionSeleccionada == 3)
+                else if (OpcionSeleccionada == pending)
                 {
                     ShowMenuPending();
                 }
