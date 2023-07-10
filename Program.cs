@@ -5,28 +5,28 @@ namespace ToDo
 {
     internal class Program
     {
-        public static List<string> TL { get; set; }
+        public static List<string> ListaDeTareas { get; set; }
 
         static void Main(string[] args)
         {
-            TL = new List<string>();
-            int variable = 0;
+            ListaDeTareas = new List<string>();
+            int OpcionSeleccionada = 0;
             do
             {
-                variable = ShowMainMenu();
-                if (variable == 1)
+                OpcionSeleccionada = ShowMainMenu();
+                if (OpcionSeleccionada == 1)
                 {
                     ShowMenuAdd();
                 }
-                else if (variable == 2)
+                else if (OpcionSeleccionada == 2)
                 {
-                    ShowMenuDos();
+                    ShowMenuDelete();
                 }
-                else if (variable == 3)
+                else if (OpcionSeleccionada == 3)
                 {
-                    ShowMenuTres();
+                    ShowMenuPending();
                 }
-            } while (variable != 4);
+            } while (OpcionSeleccionada != 4);
         }
         /// <summary>
         /// Show the main menu 
@@ -46,15 +46,15 @@ namespace ToDo
             return Convert.ToInt32(line);
         }
 
-        public static void ShowMenuDos()
+        public static void ShowMenuDelete()
         {
             try
             {
                 Console.WriteLine("Ingrese el número de la tarea a remover: ");
                 // Show current taks
-                for (int i = 0; i < TL.Count; i++)
+                for (int i = 0; i < ListaDeTareas.Count; i++)
                 {
-                    Console.WriteLine((i + 1) + ". " + TL[i]);
+                    Console.WriteLine((i + 1) + ". " + ListaDeTareas[i]);
                 }
                 Console.WriteLine("----------------------------------------");
 
@@ -63,10 +63,10 @@ namespace ToDo
                 int indexToRemove = Convert.ToInt32(line) - 1;
                 if (indexToRemove > -1)
                 {
-                    if (TL.Count > 0)
+                    if (ListaDeTareas.Count > 0)
                     {
-                        string task = TL[indexToRemove];
-                        TL.RemoveAt(indexToRemove);
+                        string task = ListaDeTareas[indexToRemove];
+                        ListaDeTareas.RemoveAt(indexToRemove);
                         Console.WriteLine("Tarea " + task + " eliminada");
                     }
                 }
@@ -82,7 +82,7 @@ namespace ToDo
             {
                 Console.WriteLine("Ingrese el nombre de la tarea: ");
                 string task = Console.ReadLine();
-                TL.Add(task);
+                ListaDeTareas.Add(task);
                 Console.WriteLine("Tarea registrada");
             }
             catch (Exception)
@@ -90,18 +90,18 @@ namespace ToDo
             }
         }
 
-        public static void ShowMenuTres()
+        public static void ShowMenuPending()
         {
-            if (TL == null || TL.Count == 0)
+            if (ListaDeTareas == null || ListaDeTareas.Count == 0)
             {
                 Console.WriteLine("No hay tareas por realizar");
             } 
             else
             {
                 Console.WriteLine("----------------------------------------");
-                for (int i = 0; i < TL.Count; i++)
+                for (int i = 0; i < ListaDeTareas.Count; i++)
                 {
-                    Console.WriteLine((i + 1) + ". " + TL[i]);
+                    Console.WriteLine((i + 1) + ". " + ListaDeTareas[i]);
                 }
                 Console.WriteLine("----------------------------------------");
             }
